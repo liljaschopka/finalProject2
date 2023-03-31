@@ -1,14 +1,28 @@
 package hi.userinterface.finalproject2;
 
+import hi.model.LibrarySystem;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 
 public class LibraryController {
     @FXML
-    private Label welcomeText;
-
+    private ListView fxYourBooks;
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private ListView fxBookshelf;
+    @FXML
+    private Button fxCheckout;
+    @FXML
+    private Button fxAdd;
+    @FXML
+    private Button fxReturn;
+    @FXML
+    private Button fxSignIn;
+
+    public void fxSignInHandler(ActionEvent actionEvent) {
+        
     }
+
+    LibrarySystem librarySystem = new LibrarySystem();
 }
