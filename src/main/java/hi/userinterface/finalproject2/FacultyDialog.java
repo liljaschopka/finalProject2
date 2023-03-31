@@ -1,6 +1,6 @@
 package hi.userinterface.finalproject2;
 
-import hi.model.Student;
+import hi.model.FacultyMember;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,35 +18,38 @@ import java.io.IOException;
  *
  *
  *****************************************************************************/
-public class StudentDialog extends Dialog<Student> {
+public class FacultyDialog extends Dialog<FacultyMember> {
 
     @FXML
     private TextField fxName;
+    @FXML
+    private TextField fxDepartment;
     @FXML
     private ButtonType fxConfirm;
     @FXML
     private ButtonType fxCancel;
 
-    private Student student;
+    private FacultyMember facultyMember;
 
-    public StudentDialog(Student s) {
-        student = s;
-        readStudentDialog();
+    public FacultyDialog(FacultyMember fm) {
+        facultyMember = fm;
+        readFacultyMemeberDialog();
         okRule();
 
-        fxName.textProperty().bindBidirectional(s.getName());
+        fxName.textProperty().bindBidirectional(fm.getName());
+        fxDepartment.textProperty().bindBidirectional(fm.getDepartment());
 
         setResultConverter(b -> {
             if (b.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-                return s;
+                return fm;
             } else {
                 return null;
             }
         });
     }
 
-    private DialogPane readStudentDialog() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("student-view.fxml"));
+    private DialogPane readFacultyMemeberDialog() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("faculty-view.fxml"));
         try {
             fxmlLoader.setController(this);
             DialogPane dialogPane = fxmlLoader.load();

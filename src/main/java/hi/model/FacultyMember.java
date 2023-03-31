@@ -1,19 +1,22 @@
 package hi.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class FacultyMember extends User {
 
-    private String department;
+    private StringProperty department = new SimpleStringProperty();
 
-    public FacultyMember(String name, String department) {
+    public FacultyMember(String name, String dm) {
         super(name);
-        this.department = department;
+        department.set(dm);
     }
 
-    public String getDepartment() {
+    public StringProperty getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDepartment(String dm) {
+        department.set(dm);
     }
 }
