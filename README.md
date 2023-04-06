@@ -1,2 +1,2 @@
-# finalProject2
+# Final Project in Hugbúnaðarhönnun og forritun
  

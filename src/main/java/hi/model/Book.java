@@ -36,5 +36,9 @@ public class Book {
         authors.add(author);
     }
 
+    public String toString() {
+        return title + " by " + authors;
+    }
+
 
 }

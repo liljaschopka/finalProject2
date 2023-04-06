@@ -18,7 +18,7 @@ import java.io.IOException;
  *****************************************************************************/
 public class BookView extends ListView {
 
-    private LibrarySystem librarySystem;
+    private LibrarySystem librarySystem = new LibrarySystem();
 
     public BookView() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("book-view.fxml"));
@@ -33,7 +33,8 @@ public class BookView extends ListView {
 
     public void setBooks() {
         librarySystem.setBooks();
+        librarySystem.setFxBooks();
         System.out.println("gögn sett");
-        setItems(librarySystem.getBooks());
+        setItems(librarySystem.getFxBooks());
     }
 }

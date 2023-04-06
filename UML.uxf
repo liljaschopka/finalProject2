@@ -1,0 +1,77 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>throws
+</help_text><element><id>UMLClass</id><coordinates><x>370</x><y>290</y><w>270</w><h>160</h></coordinates><panel_attributes>Lending
+--
+-dueDate: java.time.LocalDate
+--
++Lending(Book book, User user): ctor
++getDueDate(): LocalDate
++setDueDate(LocalDate dueDate): void
++getBook(): Book
++setBook(Book book): void
++getUser(): User
++setUser(User user): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>330</x><y>0</y><w>530</w><h>190</h></coordinates><panel_attributes>LibrarySystem
+--
++LibrarySystem(): ctor
++addBookWithTitleAndAuthorlist(String title, List&lt;Author&gt; authors): void
++addStudentUser(String name, boolean feePaid): void
++addFacultyMemberUser(String name, String department): void
++findBookByTitle(String title): Book
++findUserByName(String name): User
++borrowBook(User user, Book book): void
++extendLending(FacultyMember facultyMember, Book book, LocalDate newDueDate): void
++returnBook(User user, Book book): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>180</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>310</y><w>210</w><h>110</h></coordinates><panel_attributes>User {Abstract}
+--
+-name: String
+--
++User(String name): ctor
++getName(): String
++setName(String name): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>180</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>300</y><w>80</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+User
+</panel_attributes><additional_attributes>60;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>510</y><w>320</w><h>100</h></coordinates><panel_attributes>FacultyMember
+--
+-department: String
+--
++FacultyMemberString name, String department): ctor
++getDepartment(): String
++setDepartment(String department): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>510</y><w>280</w><h>100</h></coordinates><panel_attributes>Student
+--
+-feePaid: boolean
+--
++Student(String name, boolean feePaid): ctor
++isFeePaid(): boolean
++setFeePaid(boolean feePaid): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>410</y><w>290</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>270;10;270;70;10;70;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>410</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>510</y><w>210</w><h>120</h></coordinates><panel_attributes>Author
+--
+-name: String
+--
++Author(String name): ctor
++getName(): String
++setName(String name): void
++toString(): name</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>310</y><w>270</w><h>160</h></coordinates><panel_attributes>Book
+--
+-title: String
+--
++Book(String title. List&lt;Author&gt; authors): ctor
++addAuthor(Author author): void
++getAuthors(): List&lt;Author&gt;
++setAuthors(List&lt;Author&gt; authors): void
++getTitle(): String
++setTitle(String title):void
++toString(): title + "by" + authors</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>460</y><w>70</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+Authors
+m1=1..n</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>350</y><w>100</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+Book
+m1=1</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>200</y><w>300</w><h>60</h></coordinates><panel_attributes>EmptyAuthorListException
+--
+--
++EmptyAuthorListException(String message): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>250</y><w>80</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>180</y><w>180</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+books
+m2=0..n
+</panel_attributes><additional_attributes>160;10;160;100;10;100;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>140</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>90;20;20;20;20;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>70</y><w>250</w><h>70</h></coordinates><panel_attributes>UserOrBookDoesNotExistException
+--
+--
++UserOrBookDoesNotExistException
+					(String message): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>10</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>90;20;20;20;20;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>130</w><h>30</h></coordinates><panel_attributes>java.lang.Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>20</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>20</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element></diagram>
