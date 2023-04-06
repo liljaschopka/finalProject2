@@ -32,9 +32,9 @@ public class StudentDialog extends Dialog<Student> {
     public StudentDialog(Student s) {
         student = s;
         readStudentDialog();
-        okRule();
+        //okRule();
 
-        fxName.textProperty().bindBidirectional(s.getName());
+        fxName.textProperty().bindBidirectional(s.nameProperty());
 
         setResultConverter(b -> {
             if (b.getButtonData() == ButtonBar.ButtonData.OK_DONE) {

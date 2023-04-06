@@ -75,4 +75,49 @@ public class LibrarySystem {
         }
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Lending> getLendings() {
+        return lendings;
+    }
+
+    public void setBooks() {
+        ArrayList<Author> Mockingbird = new ArrayList<>();
+        Mockingbird.add(new Author("Harper Lee"));
+        ArrayList<Author> Pride = new ArrayList<>();
+        Pride.add(new Author("Jane Austen"));
+        ArrayList<Author> Moby = new ArrayList<>();
+        Moby.add(new Author("Herman Melville"));
+        ArrayList<Author> Gatsby = new ArrayList<>();
+        Gatsby.add(new Author("F. Scott Fitzgerald"));
+        ArrayList<Author> Frankenstein = new ArrayList<>();
+        Frankenstein.add(new Author("Mary Shelley"));
+        ArrayList<Author> Women = new ArrayList<>();
+        Women.add(new Author("Louisa May Alcott"));
+        ArrayList<Author> Wuthering = new ArrayList<>();
+        Wuthering.add(new Author("Emily Brontë"));
+        ArrayList<Author> AnneKarenina = new ArrayList<>();
+        AnneKarenina.add(new Author("Leo Tolstoy"));
+        ArrayList<Author> TheTaleOfTwoCities = new ArrayList<>();
+        TheTaleOfTwoCities.add(new Author("Charles Dickens"));
+        ArrayList<Author> OfMiceAndMen = new ArrayList<>();
+        OfMiceAndMen.add(new Author("John Steinbeck"));
+
+        books.add(new Book("To Kill a Mockingbird", Mockingbird));
+        books.add(new Book("Pride and Prejudice", Pride));
+        books.add(new Book("Moby Dick", Moby));
+        books.add(new Book("Gatsby", Gatsby));
+        books.add(new Book("Frankenstein", Frankenstein));
+        books.add(new Book("The Tale of Two Cities", TheTaleOfTwoCities));
+        books.add(new Book("Of Mice and Men", OfMiceAndMen));
+
+        System.out.println("books are made");
+    }
+
 }

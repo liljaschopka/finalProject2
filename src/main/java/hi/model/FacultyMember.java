@@ -15,8 +15,8 @@ public class FacultyMember extends User {
         departmentString = dm;
     }
 
-    public StringProperty getDepartment() {
-        return department;
+    public String getDepartment() {
+        return department.get();
     }
 
     public String getDepartmentString() {
@@ -25,5 +25,9 @@ public class FacultyMember extends User {
 
     public void setDepartment(String dm) {
         department.set(dm);
+    }
+
+    public StringProperty departmentProperty() {
+        return department;
     }
 }

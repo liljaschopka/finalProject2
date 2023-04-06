@@ -14,12 +14,17 @@ public class User {
         nameString = n;
     }
 
-    public StringProperty getName() {
+    public StringProperty nameProperty() {
         return name;
     }
 
+
     public String getNameString() {
         return nameString;
+    }
+
+    public String getName() {
+        return name.get();
     }
 
 

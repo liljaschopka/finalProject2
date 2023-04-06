@@ -34,10 +34,10 @@ public class FacultyDialog extends Dialog<FacultyMember> {
     public FacultyDialog(FacultyMember fm) {
         facultyMember = fm;
         readFacultyMemeberDialog();
-        okRule();
+        //okRule();
 
-        fxName.textProperty().bindBidirectional(fm.getName());
-        fxDepartment.textProperty().bindBidirectional(fm.getDepartment());
+        fxName.textProperty().bindBidirectional(fm.nameProperty());
+        fxDepartment.textProperty().bindBidirectional(fm.departmentProperty());
 
         setResultConverter(b -> {
             if (b.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
