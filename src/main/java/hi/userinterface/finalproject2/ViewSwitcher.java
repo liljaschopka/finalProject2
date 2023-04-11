@@ -1,5 +1,6 @@
 package hi.userinterface.finalproject2;
 
+import hi.model.LibrarySystem;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,33 +23,29 @@ public class ViewSwitcher {
         ViewSwitcher.scene = scene;
     }
 
-    public static void switchTo(View view) {
+    public static void switchTo(View view, LibrarySystem model) {
         if (scene == null) {
             System.out.println("No scene was set");
             return;
         }
+
         try {
             Parent root;
-            FXMLLoader loader = null;
-            if (cache.containsKey(view)) {
-                System.out.println("Loading from cache");
-                root = cache.get(view);
-            } else {
-                System.out.println("Loading from FXML");
-                loader = new
-                        FXMLLoader(ViewSwitcher.class.getResource(view.getFileName()));
-                root = loader.load();
-                cache.put(view, root);
-                scene.setRoot(root);
-                controllers.put(view, loader.getController());
+            FXMLLoader loader = new FXMLLoader(ViewSwitcher.class.getResource(view.getFileName()));
+            root = loader.load();
+            Object controller = loader.getController();
+            if (controller instanceof ControllerWithModel) {
+                ((ControllerWithModel) controller).setModel(model); // set the model
             }
+            controllers.put(view, controller); // save the controller
+            cache.put(view, root); // save the view
             scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static Object lookup(View v) {
-        return controllers.get(v);
+    public static <T> T getController(View view) {
+        return (T) controllers.get(view);
     }
 }

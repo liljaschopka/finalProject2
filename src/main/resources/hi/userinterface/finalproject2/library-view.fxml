@@ -27,6 +27,6 @@
         <Button fx:id="fxReturn" layoutX="323.0" layoutY="335.0" mnemonicParsing="false" text="Return"
         />
         <Button layoutX="427.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0"
-                text="Sign in as student"/>
+                text="Sign in as student" onMouseClicked="#fxSignInStudentHandler"/>
     </children>
 </AnchorPane>

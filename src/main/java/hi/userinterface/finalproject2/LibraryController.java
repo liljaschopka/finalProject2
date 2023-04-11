@@ -6,13 +6,18 @@ import hi.model.LibrarySystem;
 import hi.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Optional;
 
-public class LibraryController {
+public class LibraryController implements ControllerWithModel {
     @FXML
     private ListView<Book> fxYourBooks;
     @FXML
@@ -29,26 +34,50 @@ public class LibraryController {
     private Button fxSignInFaculty;
     @FXML
     private Label fxName;
-
-    private LibrarySystem librarySystem;
     private Student student;
     private FacultyMember facultyMember;
 
-    public void fxSignInStudentHandler(ActionEvent actionEvent) {
-        Student newStudent = new Student("", true);
-        StudentDialog s = new StudentDialog(newStudent);
-        Optional<Student> result = s.showAndWait();
-        result.ifPresent(value -> fxName.setText(value.getName()));
-        librarySystem.addStudentUser(newStudent.getName(), newStudent.isFeePaid());
-        student = newStudent;
+    private Stage primaryStage;
+
+    private LibrarySystem model;
+
+    @FXML
+    public void fxSignInStudentHandler() {
+        //Student newStudent = new Student("", true);
+        //StudentDialog s = new StudentDialog(newStudent);
+        //Optional<Student> result = s.showAndWait();
+        //result.ifPresent(value -> fxName.setText(value.getName()));
+        //librarySystem.addStudentUser(newStudent.getName(), newStudent.isFeePaid());
+        //student = newStudent;
+        ViewSwitcher.switchTo(View.STUDENT, model);
     }
+
+
+    public void switchToLibraryView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("library-view.fxml"));
+        Parent root = loader.load();
+        LibraryController controller = loader.getController();
+        controller.setModel(model);
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) primaryStage.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setModel(LibrarySystem model) {
+        this.model = model;
+    }
+
+
+
 
     public void fxSignInFacultyHandler(ActionEvent actionEvent) {
         FacultyMember newFaculty = new FacultyMember("", "");
         FacultyDialog f = new FacultyDialog(newFaculty);
         Optional<FacultyMember> result = f.showAndWait();
         result.ifPresent(value -> fxName.setText(value.getName()));
-        librarySystem.addFacultyMemberUser(newFaculty.getName(), newFaculty.getDepartment());
+        model.addFacultyMemberUser(newFaculty.getName(), newFaculty.getDepartment());
         facultyMember = newFaculty;
     }
 
@@ -79,7 +108,11 @@ public class LibraryController {
 
     public void initialize() {
         fxBookshelf.setBooks();
+    }
 
+    @FXML
+    public void handleClick(){
+        System.out.println("Clicked");
     }
 
 }

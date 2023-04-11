@@ -6,7 +6,7 @@ package hi.userinterface.finalproject2;
 public enum View {
     LIBRARY("library-view.fxml"),
     CHECKOUT("checkout-view.fxml"),
-    STUDENT("student-view.fxml"),
+    STUDENT("studentlogin-view.fxml"),
     FACULTY("faculty-view.fxml");
 
     private final String fileName;

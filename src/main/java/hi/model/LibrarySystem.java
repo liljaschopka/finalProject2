@@ -15,10 +15,16 @@ public class LibrarySystem {
     private List<Lending> lendings;
     private ObservableList<Lending> fxLendings = FXCollections.observableArrayList();
 
+    private User currentUser;
+
     public LibrarySystem() {
         this.books = new ArrayList<>();
         this.users = new ArrayList<>();
         this.lendings = new ArrayList<>();
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     public void addBookWithTitleAndAuthorlist(String title, List<Author> authors) throws EmptyAuthorListException {
@@ -27,7 +33,7 @@ public class LibrarySystem {
 
     public void addStudentUser(String name, boolean feePaid) {
         if (feePaid == true) {
-            users.add(new User(name));
+            users.add(new Student(name, true));
         }
     }
 
@@ -71,6 +77,7 @@ public class LibrarySystem {
         }
 
     }
+
 
     public void returnBook(User user, Book book) throws UserOrBookDoesNotExistException {
         for (int i = 0; i < lendings.size(); i++) {
