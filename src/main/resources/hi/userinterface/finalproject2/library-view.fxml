@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import hi.userinterface.finalproject2.BookView?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <ListView fx:id="fxBookshelf" layoutX="14.0" layoutY="23.0" prefHeight="367.0" prefWidth="293.0"/>
+        <BookView fx:id="fxBookshelf" layoutX="14.0" layoutY="23.0" prefHeight="367.0" prefWidth="293.0"/>
         <Label layoutX="125.0" layoutY="5.0" text="Bookshelf">
             <font>
                 <Font size="14.0"/>
@@ -22,9 +23,9 @@
                 prefWidth="160.0" text="Sign in as faculty member"/>
         <Button fx:id="fxCheckout" layoutX="512.0" layoutY="360.0" mnemonicParsing="false" text="Check out"/>
         <Button fx:id="fxAdd" layoutX="384.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0"
-                text="Add " onAction="#fxAddBookHandler"/>
+                text="Add "/>
         <Button fx:id="fxReturn" layoutX="323.0" layoutY="335.0" mnemonicParsing="false" text="Return"
-                onAction="#fxRemoveBookHandler"/>
+        />
         <Button layoutX="427.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0"
                 text="Sign in as student"/>
     </children>
