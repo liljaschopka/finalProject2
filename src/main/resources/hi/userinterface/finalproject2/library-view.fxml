@@ -26,11 +26,16 @@
             </Label>
             <ListView fx:id="fxYourBooks" layoutX="323.0" layoutY="118.0" prefHeight="212.0" prefWidth="263.0" />
             <Button fx:id="fxSignIn" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#fxSignInFacultyHandler" prefHeight="26.0" prefWidth="160.0" text="Sign in as faculty member" />
-            <Button fx:id="fxCheckout" layoutX="516.0" layoutY="336.0" mnemonicParsing="false" text="Check out" />
-            <Button fx:id="fxAdd" layoutX="384.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Add " />
+            <Button fx:id="fxCheckout" layoutX="516.0" layoutY="336.0" mnemonicParsing="false" text="Check out" onMouseClicked="#fxCheckoutHandler"/>
+            <Button fx:id="fxAdd" layoutX="384.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#fxAddBookHandler" prefHeight="26.0" prefWidth="53.0" text="Add " />
             <Button fx:id="fxReturn" layoutX="323.0" layoutY="335.0" mnemonicParsing="false" text="Return" />
             <Button layoutX="427.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#fxSignInStudentHandler" prefHeight="26.0" prefWidth="160.0" text="Sign in as student" />
-         <Button layoutX="323.0" layoutY="39.0" mnemonicParsing="false" text="My lendings" onMouseClicked="#fxMyLendingsHandler"/>
+            <Button layoutX="323.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#fxMyLendingsHandler" text="My lendings" />
+            <Label fx:id="fxLoginNotification" layoutX="113.0" layoutY="145.0" text="Sign in to continue">
+                <font>
+                    <Font name="System Bold" size="42.0" />
+                </font>
+            </Label>
         </children>
     </AnchorPane>
    <padding>

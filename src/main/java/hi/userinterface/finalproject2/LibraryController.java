@@ -32,6 +32,8 @@ public class LibraryController implements ControllerWithModel {
     private Button fxSignInFaculty;
     @FXML
     private Label fxName;
+    @FXML
+    private Label fxLoginNotification;
 
     @FXML
     private Text userTitle;
@@ -82,7 +84,7 @@ public class LibraryController implements ControllerWithModel {
     }
 
     @FXML
-    public void fxAddBookHandler(ActionEvent actionEvent) {
+    public void fxAddBookHandler() {
         if (model.getCurrentUser() != null) {
             fxBookshelf.getSelectionModel().getSelectedItems().forEach(selected -> {
                 fxYourBooks.getItems().add((Book) selected);
@@ -96,6 +98,17 @@ public class LibraryController implements ControllerWithModel {
             fxAdd.setDisable(true);
             fxCheckout.setDisable(true);
             fxReturn.setDisable(true);
+            setLoginNotification(true);
+        }
+
+    }
+
+    @FXML
+    public void fxCheckoutHandler() {
+        if(!fxYourBooks.getItems().isEmpty()) {
+            System.out.println("Checking out");
+        } else {
+            System.out.println("No books to checkout");
         }
 
     }
@@ -108,6 +121,7 @@ public class LibraryController implements ControllerWithModel {
 
     public void initialize() {
         fxBookshelf.setBooks();
+        setLoginNotification(false);
     }
 
     public void updateLogintext(){
@@ -129,6 +143,11 @@ public class LibraryController implements ControllerWithModel {
     @FXML
     public void fxMyLendingsHandler(){
         ViewSwitcher.switchTo(View.MYLENDINGS, model);
+    }
+
+    public void setLoginNotification(boolean visable) {
+        fxLoginNotification.setVisible(visable);
+        fxLoginNotification.setMouseTransparent(!visable);
     }
 
     @FXML
