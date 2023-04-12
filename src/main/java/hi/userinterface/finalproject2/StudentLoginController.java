@@ -12,6 +12,7 @@ public class StudentLoginController implements ControllerWithModel {
 
     @FXML
     TextField fxName;
+
     public void initialize() {
         System.out.println("Student Login Controller initialized");
     }
@@ -19,6 +20,7 @@ public class StudentLoginController implements ControllerWithModel {
     public void setModel(LibrarySystem model) {
         this.model = model;
     }
+
     @FXML
     public void handleOKClicked() throws UserOrBookDoesNotExistException {
         System.out.println("OK clidked");
@@ -26,10 +28,12 @@ public class StudentLoginController implements ControllerWithModel {
         try {
             User user = model.findUserByName(name);
             model.setCurrentUser(user);
+            System.out.println("User's name: " + user.getName());
             ViewSwitcher.switchTo(View.LIBRARY, model);
         } catch (UserOrBookDoesNotExistException e) {
             model.addStudentUser(name, true);
             User user = model.findUserByName(name);
+            System.out.println("New user is: " + user.getName());
             model.setCurrentUser(user);
             ViewSwitcher.switchTo(View.LIBRARY, model);
         }

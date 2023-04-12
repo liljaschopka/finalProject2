@@ -12,13 +12,9 @@ public class MyLendingsController implements ControllerWithModel {
 
     @FXML
     public Button ReturnBook;
-
-
+    @FXML
     public Button Back;
-
     private LibrarySystem model;
-
-
 
     public void initalize() {
         MyLendings = new ListView<>(model.getCurrentUser().getLendings());

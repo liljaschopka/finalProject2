@@ -1,6 +1,10 @@
 package hi.userinterface.finalproject2;
 
-import hi.model.*;
+import hi.model.Book;
+import hi.model.LibrarySystem;
+import hi.model.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +20,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LibraryController implements ControllerWithModel {
+
     @FXML
-    private ListView<Book> fxYourBooks;
+    private ListView<Book> fxBooksInBasket;
     @FXML
     private BookView fxBookshelf;
     @FXML
@@ -34,14 +39,11 @@ public class LibraryController implements ControllerWithModel {
     private Label fxName;
     @FXML
     private Label fxLoginNotification;
-
     @FXML
     private Text userTitle;
-    private Student student;
-    private FacultyMember facultyMember;
 
     private Stage primaryStage;
-
+    private ObservableList<Book> booksInBasket = FXCollections.observableArrayList();
     private LibrarySystem model;
 
     @FXML
@@ -87,7 +89,8 @@ public class LibraryController implements ControllerWithModel {
     public void fxAddBookHandler() {
         if (model.getCurrentUser() != null) {
             fxBookshelf.getSelectionModel().getSelectedItems().forEach(selected -> {
-                fxYourBooks.getItems().add((Book) selected);
+                fxBooksInBasket.getItems().add((Book) selected);
+                booksInBasket.add((Book) selected);
             });
            /* if(student == null){
                 librarySystem.getFxLendings().add(new Lending(facultyMember, (Book) fxBookshelf.getSelectionModel().getSelectedItem()));
@@ -105,8 +108,9 @@ public class LibraryController implements ControllerWithModel {
 
     @FXML
     public void fxCheckoutHandler() {
-        if(!fxYourBooks.getItems().isEmpty()) {
+        if (!fxBooksInBasket.getItems().isEmpty()) {
             System.out.println("Checking out");
+            ViewSwitcher.switchTo(View.CHECKOUT, model);
         } else {
             System.out.println("No books to checkout");
         }
@@ -115,8 +119,9 @@ public class LibraryController implements ControllerWithModel {
 
     @FXML
     public void fxRemoveBookHandler(ActionEvent actionEvent) {
-        Book selected = fxYourBooks.getSelectionModel().getSelectedItem();
-        fxYourBooks.getItems().remove(selected);
+        Book selected = fxBooksInBasket.getSelectionModel().getSelectedItem();
+        fxBooksInBasket.getItems().remove(selected);
+        booksInBasket.remove(selected);
     }
 
     public void initialize() {
@@ -124,15 +129,15 @@ public class LibraryController implements ControllerWithModel {
         setLoginNotification(false);
     }
 
-    public void updateLogintext(){
-        if(model.getCurrentUser() != null) {
-            if(model.getCurrentUser() instanceof Student) {
-                userTitle.setText("Logged in as Student: " +(model.getCurrentUser()).getName());
-            }else{
-                try{
-                    userTitle.setText("Logged in as: " +(model.getCurrentUser()).getName()+", "+ model.findFacultyByName(model.getCurrentUser().getName()).getDepartment());
-                } catch (Exception e){
-                    userTitle.setText("Logged in as: " +(model.getCurrentUser()).getName());
+    public void updateLogintext() {
+        if (model.getCurrentUser() != null) {
+            if (model.getCurrentUser() instanceof Student) {
+                userTitle.setText("Logged in as Student: " + (model.getCurrentUser()).getName());
+            } else {
+                try {
+                    userTitle.setText("Logged in as: " + (model.getCurrentUser()).getName() + ", " + model.findFacultyByName(model.getCurrentUser().getName()).getDepartment());
+                } catch (Exception e) {
+                    userTitle.setText("Logged in as: " + (model.getCurrentUser()).getName());
                 }
             }
         } else {
@@ -141,7 +146,7 @@ public class LibraryController implements ControllerWithModel {
     }
 
     @FXML
-    public void fxMyLendingsHandler(){
+    public void fxMyLendingsHandler() {
         ViewSwitcher.switchTo(View.MYLENDINGS, model);
     }
 
@@ -151,11 +156,17 @@ public class LibraryController implements ControllerWithModel {
     }
 
     @FXML
-    public void handleClick(){
+    public void handleClick() {
         System.out.println("Clicked");
         updateLogintext();
     }
 
+    public ObservableList<Book> getBooksInBasket() {
+        return booksInBasket;
+    }
 
-
+    public ListView<Book> getFxBooksInBasket() {
+        return fxBooksInBasket;
+    }
+    
 }
