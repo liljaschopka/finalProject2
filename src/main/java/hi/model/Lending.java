@@ -38,4 +38,9 @@ public class Lending {
         this.book = book;
     }
 
+    @Override
+    public String toString() {
+        return book+", return by: "+ dueDate;
+    }
+
 }

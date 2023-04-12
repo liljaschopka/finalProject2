@@ -1,5 +1,6 @@
 package hi.userinterface.finalproject2;
 
+import hi.model.FacultyMember;
 import hi.model.LibrarySystem;
 import hi.model.User;
 import hi.model.UserOrBookDoesNotExistException;
@@ -11,6 +12,8 @@ public class FacultyLoginController implements ControllerWithModel {
 
     @FXML
     TextField fxName;
+    @FXML
+    TextField fxDepartment;
     public void initialize() {
         System.out.println("Faculty Login Controller initialized");
     }
@@ -18,20 +21,25 @@ public class FacultyLoginController implements ControllerWithModel {
     public void setModel(LibrarySystem model) {
         this.model = model;
     }
+
+    private void switchToLibrary(User user) {
+        model.setCurrentUser(user);
+        ViewSwitcher.switchTo(View.LIBRARY, model);
+    }
     @FXML
     public void handleOKClicked() throws UserOrBookDoesNotExistException {
-        System.out.println("OK clidked");
+        System.out.println("OK clicked");
         String name = fxName.getText();
+        String department = fxDepartment.getText();
         try {
-            User user = model.findUserByName(name);
-            model.setCurrentUser(user);
-            ViewSwitcher.switchTo(View.LIBRARY, model);
+            FacultyMember user = model.findFaculty(name, department);
+            switchToLibrary(user);
         } catch (UserOrBookDoesNotExistException e) {
-            model.addStudentUser(name, true);
-            User user = model.findUserByName(name);
-            model.setCurrentUser(user);
-            ViewSwitcher.switchTo(View.LIBRARY, model);
+            model.addFacultyMemberUser(name, department);
+            User user = model.findFaculty(name, department);
+            switchToLibrary(user);
         }
+
 
     }
 

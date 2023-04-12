@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import hi.userinterface.finalproject2.BookView?>
+<?import hi.userinterface.finalproject2.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.userinterface.finalproject2.LibraryController" >
-    <children>
-        <BookView fx:id="fxBookshelf" layoutX="14.0" layoutY="23.0" prefHeight="367.0" prefWidth="293.0"/>
-        <Label layoutX="125.0" layoutY="5.0" text="Bookshelf">
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="410.0" layoutY="95.0" prefHeight="17.0" prefWidth="89.0" text="Your books">
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Label>
-        <ListView fx:id="fxYourBooks" layoutX="323.0" layoutY="118.0" prefHeight="212.0" prefWidth="263.0"/>
-        <Button fx:id="fxSignIn" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0"
-                prefWidth="160.0" text="Sign in as faculty member"/>
-        <Button fx:id="fxCheckout" layoutX="512.0" layoutY="360.0" mnemonicParsing="false" text="Check out"/>
-        <Button fx:id="fxAdd" layoutX="384.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0"
-                text="Add "/>
-        <Button fx:id="fxReturn" layoutX="323.0" layoutY="335.0" mnemonicParsing="false" text="Return"
-        />
-        <Button layoutX="427.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0"
-                text="Sign in as student" onMouseClicked="#fxSignInStudentHandler"/>
-    </children>
-</AnchorPane>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.userinterface.finalproject2.LibraryController">
+    <Text fx:id="userTitle" text="Not signed in, sign in to continue" VBox.vgrow="ALWAYS">
+      <font>
+         <Font name="System Bold" size="27.0" />
+      </font></Text>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <children>
+            <BookView fx:id="fxBookshelf" layoutX="14.0" layoutY="23.0" prefHeight="367.0" prefWidth="293.0" />
+            <Label layoutX="125.0" layoutY="5.0" text="Bookshelf">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="410.0" layoutY="95.0" prefHeight="17.0" prefWidth="89.0" text="Your books">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <ListView fx:id="fxYourBooks" layoutX="323.0" layoutY="118.0" prefHeight="212.0" prefWidth="263.0" />
+            <Button fx:id="fxSignIn" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#fxSignInFacultyHandler" prefHeight="26.0" prefWidth="160.0" text="Sign in as faculty member" />
+            <Button fx:id="fxCheckout" layoutX="516.0" layoutY="336.0" mnemonicParsing="false" text="Check out" />
+            <Button fx:id="fxAdd" layoutX="384.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="53.0" text="Add " />
+            <Button fx:id="fxReturn" layoutX="323.0" layoutY="335.0" mnemonicParsing="false" text="Return" />
+            <Button layoutX="427.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#fxSignInStudentHandler" prefHeight="26.0" prefWidth="160.0" text="Sign in as student" />
+         <Button layoutX="323.0" layoutY="39.0" mnemonicParsing="false" text="My lendings" onMouseClicked="#fxMyLendingsHandler"/>
+        </children>
+    </AnchorPane>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</VBox>

@@ -15,7 +15,7 @@ public class LibrarySystem {
     private List<Lending> lendings;
     private ObservableList<Lending> fxLendings = FXCollections.observableArrayList();
 
-    private User currentUser;
+    private User currentUser = null;
 
     public LibrarySystem() {
         this.books = new ArrayList<>();
@@ -25,6 +25,10 @@ public class LibrarySystem {
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 
     public void addBookWithTitleAndAuthorlist(String title, List<Author> authors) throws EmptyAuthorListException {
@@ -59,29 +63,65 @@ public class LibrarySystem {
         throw new UserOrBookDoesNotExistException("The user does not exist");
     }
 
-    public void borrowBook(User user, Book book) {
-        Lending lending = new Lending(user, book);
-        lendings.add(lending);
-    }
 
-    public void extendLending(FacultyMember facultyMember, Book book, LocalDate newDueDate) throws UserOrBookDoesNotExistException {
-        boolean found = false;
-        for (int i = 0; i < lendings.size(); i++) {
-            if (lendings.get(i).getUser().getName().equals(facultyMember.getName()) && lendings.get(i).getBook().getTitle().equals(book.getTitle())) {
-                lendings.get(i).setDueDate(newDueDate);
-                found = true;
+    public Student findStudent(String name) throws UserOrBookDoesNotExistException {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().equals(name) && users.get(i) instanceof Student) {
+                return (Student) users.get(i);
             }
         }
-        if (!found) {
-            throw new UserOrBookDoesNotExistException("The user does not exist");
+        throw new UserOrBookDoesNotExistException("The user does not exist");
+    }
+
+    public FacultyMember findFacultyByName(String name) throws UserOrBookDoesNotExistException {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().equals(name) && users.get(i) instanceof FacultyMember) {
+                return (FacultyMember) users.get(i);
+            }
+        }
+        throw new UserOrBookDoesNotExistException("The user does not exist");
+    }
+
+    public FacultyMember findFaculty(String name, String department) throws UserOrBookDoesNotExistException {
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            if (user instanceof FacultyMember) {
+                FacultyMember userFac = (FacultyMember) user;
+                if (userFac.getName().equals(name) && userFac.getDepartment().equals(department)) {
+                    return userFac;
+                }
+            }
+        }
+        throw new UserOrBookDoesNotExistException("The user does not exist");
+    }
+
+    public void borrowBook(Book book) {
+        Lending lending = new Lending(currentUser, book);
+        lendings.add(lending);
+        currentUser.addLending(lending);
+    }
+
+    public void extendLending(Book book, LocalDate newDueDate) {
+        if(currentUser instanceof FacultyMember) {
+            FacultyMember faculty = (FacultyMember) currentUser;
+            for (int i = 0; i < lendings.size(); i++) {
+                if (lendings.get(i).getUser().getName().equals(faculty.getName()) && lendings.get(i).getBook().getTitle().equals(book.getTitle())) {
+                    lendings.get(i).setDueDate(newDueDate);
+                }
+            }
+            for(int i = 0; i < faculty.getLendings().size(); i++) {
+                if(faculty.getLendings().get(i).getBook().getTitle().equals(book.getTitle())) {
+                    faculty.getLendings().get(i).setDueDate(newDueDate);
+                }
+            }
         }
 
     }
 
 
-    public void returnBook(User user, Book book) throws UserOrBookDoesNotExistException {
+    public void returnBook(Book book) throws UserOrBookDoesNotExistException {
         for (int i = 0; i < lendings.size(); i++) {
-            if (lendings.get(i).getUser().getName().equals(user.getName()) && lendings.get(i).getBook().getTitle().equals(book.getTitle())) {
+            if (lendings.get(i).getUser().getName().equals(currentUser.getName()) && lendings.get(i).getBook().getTitle().equals(book.getTitle())) {
                 lendings.remove(i);
             }
         }

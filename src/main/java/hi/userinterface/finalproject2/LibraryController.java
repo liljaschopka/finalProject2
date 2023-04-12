@@ -1,9 +1,6 @@
 package hi.userinterface.finalproject2;
 
-import hi.model.Book;
-import hi.model.FacultyMember;
-import hi.model.LibrarySystem;
-import hi.model.Student;
+import hi.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class LibraryController implements ControllerWithModel {
     @FXML
@@ -34,6 +32,9 @@ public class LibraryController implements ControllerWithModel {
     private Button fxSignInFaculty;
     @FXML
     private Label fxName;
+
+    @FXML
+    private Text userTitle;
     private Student student;
     private FacultyMember facultyMember;
 
@@ -69,21 +70,20 @@ public class LibraryController implements ControllerWithModel {
         this.model = model;
     }
 
-
-
-
-    public void fxSignInFacultyHandler(ActionEvent actionEvent) {
-        FacultyMember newFaculty = new FacultyMember("", "");
+    public void fxSignInFacultyHandler(MouseEvent actionEvent) {
+        /*FacultyMember newFaculty = new FacultyMember("", "");
         FacultyDialog f = new FacultyDialog(newFaculty);
         Optional<FacultyMember> result = f.showAndWait();
         result.ifPresent(value -> fxName.setText(value.getName()));
         model.addFacultyMemberUser(newFaculty.getName(), newFaculty.getDepartment());
         facultyMember = newFaculty;
+        */
+        ViewSwitcher.switchTo(View.FACULTY, model);
     }
 
     @FXML
     public void fxAddBookHandler(ActionEvent actionEvent) {
-        if (student != null || facultyMember != null) {
+        if (model.getCurrentUser() != null) {
             fxBookshelf.getSelectionModel().getSelectedItems().forEach(selected -> {
                 fxYourBooks.getItems().add((Book) selected);
             });
@@ -110,9 +110,33 @@ public class LibraryController implements ControllerWithModel {
         fxBookshelf.setBooks();
     }
 
+    public void updateLogintext(){
+        if(model.getCurrentUser() != null) {
+            if(model.getCurrentUser() instanceof Student) {
+                userTitle.setText("Logged in as Student: " +(model.getCurrentUser()).getName());
+            }else{
+                try{
+                    userTitle.setText("Logged in as: " +(model.getCurrentUser()).getName()+", "+ model.findFacultyByName(model.getCurrentUser().getName()).getDepartment());
+                } catch (Exception e){
+                    userTitle.setText("Logged in as: " +(model.getCurrentUser()).getName());
+                }
+            }
+        } else {
+            userTitle.setText("Not signed in, sign in to continue");
+        }
+    }
+
+    @FXML
+    public void fxMyLendingsHandler(){
+        ViewSwitcher.switchTo(View.MYLENDINGS, model);
+    }
+
     @FXML
     public void handleClick(){
         System.out.println("Clicked");
+        updateLogintext();
     }
+
+
 
 }

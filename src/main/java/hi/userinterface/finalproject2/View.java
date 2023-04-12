@@ -7,7 +7,8 @@ public enum View {
     LIBRARY("library-view.fxml"),
     CHECKOUT("checkout-view.fxml"),
     STUDENT("studentlogin-view.fxml"),
-    FACULTY("faculty-view.fxml");
+    FACULTY("facultylogin-view.fxml"),
+    MYLENDINGS("mylendings-view.fxml");
 
     private final String fileName;
 

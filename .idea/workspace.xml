@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Breyta og svona">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ControllerWithModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/FacultyLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/StudentLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/facultylogin-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/studentlogin-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" afterDir="false" />
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Changed to using viewswitcher to do logins instead of using dialogs">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/mylendings-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/FacultyLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/FacultyLoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/facultylogin-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/facultylogin-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -47,12 +47,12 @@
     <option name="showModules" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,12 +69,20 @@
       <option name="project" value="LOCAL" />
       <updated>1681241138799</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed to using viewswitcher to do logins instead of using dialogs">
+      <created>1681250102625</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681250102625</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Breyta og svona" />
-    <option name="LAST_COMMIT_MESSAGE" value="Breyta og svona" />
+    <MESSAGE value="Changed to using viewswitcher to do logins instead of using dialogs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to using viewswitcher to do logins instead of using dialogs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

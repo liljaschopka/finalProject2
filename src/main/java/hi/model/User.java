@@ -2,6 +2,7 @@ package hi.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 public class User {
 
@@ -9,10 +10,21 @@ public class User {
 
     private String nameString;
 
+    private ObservableList<Lending> lendings;
+
     public User(String n) {
         name.set(n);
         nameString = n;
     }
+
+    public void addLending(Lending l) {
+        lendings.add(l);
+    }
+
+    public ObservableList<Lending> getLendings() {
+        return lendings;
+    }
+
 
     public StringProperty nameProperty() {
         return name;

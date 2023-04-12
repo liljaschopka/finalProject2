@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LibraryApplication extends Application {
-    private LibrarySystem model = new LibrarySystem();
     @Override
     public void start(Stage stage) throws IOException {
         var scene = new Scene(new Pane());
+        LibrarySystem model = new LibrarySystem();
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.LIBRARY, model);
         stage.setTitle("Library");
