@@ -10,6 +10,7 @@ public enum View {
     FACULTY("facultylogin-view.fxml"),
     MYLENDINGS("mylendings-view.fxml");
 
+
     private final String fileName;
 
     View(String fileName) {

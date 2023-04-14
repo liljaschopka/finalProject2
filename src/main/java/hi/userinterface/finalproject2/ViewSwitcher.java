@@ -51,4 +51,5 @@ public class ViewSwitcher {
     public static <T> T getController(View view) {
         return (T) controllers.get(view);
     }
+    
 }
