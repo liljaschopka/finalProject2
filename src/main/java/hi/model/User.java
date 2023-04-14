@@ -42,4 +42,8 @@ public class User {
     public void setName(String n) {
         name.set(n);
     }
+
+    public void removeLending(Lending l) {
+        lendings.remove(l);
+    }
 }
