@@ -37,8 +37,8 @@ public class ViewSwitcher {
             if (controller instanceof ControllerWithModel) {
                 ((ControllerWithModel) controller).setModel(model); // set the model
             }
-            if (controller instanceof LibraryController) {
-                ((LibraryController) controller).updateLogintext();
+            if (controller instanceof LibraryController || controller instanceof MyLendingsController) {
+                ((ControllerUsingModelInInInitialize) controller).updateFromModel();
             }
             controllers.put(view, controller); // save the controller
             cache.put(view, root); // save the view
