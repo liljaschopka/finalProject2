@@ -12,6 +12,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
     @FXML
     public ListView<Lending> fxMyLendings;
     @FXML
+    public MyLendingsView fxMyLendingsView;
+    @FXML
     public Button fxReturnBook;
 
     public Button Back;
@@ -21,7 +23,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
 
     public void initialize() {
         model = libraryController.getModel();
-        fxMyLendings.setItems(model.getCurrentUser().getLendings());
+        fxMyLendingsView.setModel(model);
+        fxMyLendingsView.setLendings();
         int size = model.getCurrentUser().getLendings().size();
         for (int i = 0; i < size; i++) {
             System.out.println(model.getCurrentUser().getLendings().get(i).getBook().getTitle());
@@ -45,11 +48,12 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
     }
 
     public void fxReturnBookHandler() {
-        if (fxMyLendings.getSelectionModel().getSelectedItem() == null) {
-            fxMyLendings.getSelectionModel().clearSelection();
+        if (fxMyLendingsView.getSelectionModel().getSelectedItem() == null) {
+            fxMyLendingsView.getSelectionModel().clearSelection();
             System.out.println("No book selected");
         } else {
-            Book bookToReturn = fxMyLendings.getSelectionModel().getSelectedItem().getBook();
+            Lending lendingToReturn = (Lending) fxMyLendingsView.getSelectionModel().getSelectedItem();
+            Book bookToReturn = ((Lending) fxMyLendingsView.getSelectionModel().getSelectedItem()).getBook();
             System.out.println(model.getCurrentUser().getLendings().size());
             try {
                 model.returnBook(bookToReturn);
@@ -57,8 +61,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
                 System.out.println(e.getMessage());
             }
 
-            model.getCurrentUser().removeLending(fxMyLendings.getSelectionModel().getSelectedItem());
-            fxMyLendings.getItems().remove(bookToReturn);
+            model.getCurrentUser().removeLending(lendingToReturn);
+            fxMyLendings.getItems().remove(lendingToReturn);
             fxMyLendings.getSelectionModel().clearSelection();
             System.out.println(model.getCurrentUser().getLendings().size());
         }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Laga">
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="laga pinu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" afterDir="false" />
@@ -18,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
       </list>
     </option>
   </component>
@@ -75,14 +75,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681298248870</updated>
     </task>
-    <task id="LOCAL-00004" summary="laga pinu">
-      <created>1681462161081</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1681462161081</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -90,8 +83,7 @@
     <MESSAGE value="Changed to using viewswitcher to do logins instead of using dialogs" />
     <MESSAGE value="Added my lendings view and Controller" />
     <MESSAGE value="laga pinu" />
-    <MESSAGE value="Laga" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laga" />
+    <option name="LAST_COMMIT_MESSAGE" value="laga pinu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
