@@ -151,7 +151,11 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
 
     @FXML
     public void fxMyLendingsHandler() {
-        ViewSwitcher.switchTo(View.MYLENDINGS, model);
+        if(model.getCurrentUser() != null){
+            ViewSwitcher.switchTo(View.MYLENDINGS, model);
+        } else {
+            setLoginNotification(true);
+        }
     }
 
     public void setLoginNotification(boolean visable) {
