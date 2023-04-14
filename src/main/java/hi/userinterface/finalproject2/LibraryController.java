@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LibraryController implements ControllerWithModel {
+public class LibraryController implements ControllerWithModel, ControllerUsingModelInInInitialize {
 
     @FXML
     private ListView<Book> fxBooksInBasket;
@@ -127,6 +127,10 @@ public class LibraryController implements ControllerWithModel {
     public void initialize() {
         fxBookshelf.setBooks();
         setLoginNotification(false);
+    }
+
+    public void updateFromModel() {
+        updateLogintext();
     }
 
     public void updateLogintext() {

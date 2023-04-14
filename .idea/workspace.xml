@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Added my lendings view and Controller">
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="laga pinu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +38,13 @@
     <option name="showModules" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/liljaschopka/Desktop/Tölvunarfræði/Hugbúnaðarhönnun/finalProject2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/liljaschopka/Desktop/Tölvunarfræði/Hugbúnaðarhönnun/finalProject2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -82,7 +82,8 @@
     <MESSAGE value="Breyta og svona" />
     <MESSAGE value="Changed to using viewswitcher to do logins instead of using dialogs" />
     <MESSAGE value="Added my lendings view and Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added my lendings view and Controller" />
+    <MESSAGE value="laga pinu" />
+    <option name="LAST_COMMIT_MESSAGE" value="laga pinu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
