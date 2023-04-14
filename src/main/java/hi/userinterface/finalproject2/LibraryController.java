@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LibraryController implements ControllerWithModel {
+public class LibraryController implements ControllerWithModel, ControllerUsingModelInInInitialize {
     @FXML
     private ListView<Book> fxYourBooks;
     @FXML
@@ -124,7 +124,7 @@ public class LibraryController implements ControllerWithModel {
         setLoginNotification(false);
     }
 
-    public void updateLogintext(){
+    public void updateFromModel(){
         if(model.getCurrentUser() != null) {
             if(model.getCurrentUser() instanceof Student) {
                 userTitle.setText("Logged in as Student: " +(model.getCurrentUser()).getName());
@@ -153,7 +153,7 @@ public class LibraryController implements ControllerWithModel {
     @FXML
     public void handleClick(){
         System.out.println("Clicked");
-        updateLogintext();
+        updateFromModel();
     }
 
 

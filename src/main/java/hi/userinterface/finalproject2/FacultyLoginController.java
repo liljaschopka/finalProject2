@@ -39,9 +39,8 @@ public class FacultyLoginController implements ControllerWithModel {
             User user = model.findFaculty(name, department);
             switchToLibrary(user);
         }
-
-
     }
+
 
     @FXML
     public void handleCancelClicked() {

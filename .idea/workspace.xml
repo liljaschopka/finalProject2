@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Added my lendings view and Controller">
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Added functionality to checkout and add">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ControllerUsingModelInInInitialize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/FacultyLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/FacultyLoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/library-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,14 +77,22 @@
       <option name="project" value="LOCAL" />
       <updated>1681298248870</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added functionality to checkout and add">
+      <created>1681299354277</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681299354277</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Breyta og svona" />
     <MESSAGE value="Changed to using viewswitcher to do logins instead of using dialogs" />
     <MESSAGE value="Added my lendings view and Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added my lendings view and Controller" />
+    <MESSAGE value="Added functionality to checkout and add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to checkout and add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
