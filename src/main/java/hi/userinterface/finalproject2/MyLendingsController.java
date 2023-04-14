@@ -15,8 +15,10 @@ public class MyLendingsController implements ControllerWithModel {
     @FXML
     public Button Back;
     private LibrarySystem model;
+    private LibraryController libraryController = ViewSwitcher.getController(View.LIBRARY);
 
     public void initalize() {
+        model = libraryController.getModel();
         MyLendings = new ListView<>(model.getCurrentUser().getLendings());
     }
 

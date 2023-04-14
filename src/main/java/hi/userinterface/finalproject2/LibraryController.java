@@ -168,5 +168,9 @@ public class LibraryController implements ControllerWithModel {
     public ListView<Book> getFxBooksInBasket() {
         return fxBooksInBasket;
     }
-    
+
+    public LibrarySystem getModel() {
+        return model;
+    }
+
 }
