@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
-public class MyLendingsController implements ControllerWithModel {
+public class MyLendingsController implements ControllerWithModel, ControllerUsingModelInInInitialize {
     @FXML
     public ListView<Lending> MyLendings;
 
@@ -21,9 +21,13 @@ public class MyLendingsController implements ControllerWithModel {
     private LibraryController libraryController = ViewSwitcher.getController(View.LIBRARY);
 
 
-    public void initalize() {
+    public void initialize() {
         model = libraryController.getModel();
-        MyLendings = new ListView<>(model.getCurrentUser().getLendings());
+        MyLendings.setItems(model.getCurrentUser().getLendings());
+        int size = model.getCurrentUser().getLendings().size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(model.getCurrentUser().getLendings().get(i).getBook().getTitle());
+        }
     }
 
     public void setModel(LibrarySystem model) {
