@@ -37,7 +37,7 @@ public class ViewSwitcher {
             if (controller instanceof ControllerWithModel) {
                 ((ControllerWithModel) controller).setModel(model); // set the model
             }
-            if (controller instanceof MyLendingsController) {
+            if (controller instanceof ControllerUsingModelInInInitialize) {
                 ((ControllerUsingModelInInInitialize) controller).updateFromModel();
             }
             controllers.put(view, controller); // save the controller
