@@ -1,0 +1,123 @@
+Index: src/main/java/hi/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hi.model;\r\n\r\nimport javafx.beans.property.SimpleStringProperty;\r\nimport javafx.beans.property.StringProperty;\r\nimport javafx.collections.ObservableList;\r\n\r\npublic class User {\r\n\r\n    private StringProperty name = new SimpleStringProperty();\r\n\r\n    private String nameString;\r\n\r\n    private ObservableList<Lending> lendings;\r\n\r\n    public User(String n) {\r\n        name.set(n);\r\n        nameString = n;\r\n    }\r\n\r\n    public void addLending(Lending l) {\r\n        lendings.add(l);\r\n    }\r\n\r\n    public ObservableList<Lending> getLendings() {\r\n        return lendings;\r\n    }\r\n\r\n\r\n    public StringProperty nameProperty() {\r\n        return name;\r\n    }\r\n\r\n\r\n    public String getNameString() {\r\n        return nameString;\r\n    }\r\n\r\n    public String getName() {\r\n        return name.get();\r\n    }\r\n\r\n\r\n    public void setName(String n) {\r\n        name.set(n);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/hi/model/User.java b/src/main/java/hi/model/User.java
+--- a/src/main/java/hi/model/User.java	(revision 500d4c752fdc0425474f2401abdea62d1d8cf5ef)
++++ b/src/main/java/hi/model/User.java	(date 1681462627664)
+@@ -2,6 +2,7 @@
+ 
+ import javafx.beans.property.SimpleStringProperty;
+ import javafx.beans.property.StringProperty;
++import javafx.collections.FXCollections;
+ import javafx.collections.ObservableList;
+ 
+ public class User {
+@@ -10,7 +11,7 @@
+ 
+     private String nameString;
+ 
+-    private ObservableList<Lending> lendings;
++    private ObservableList<Lending> lendings = FXCollections.observableArrayList();
+ 
+     public User(String n) {
+         name.set(n);
+Index: src/main/java/hi/userinterface/finalproject2/LibraryController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hi.userinterface.finalproject2;\r\n\r\nimport hi.model.Book;\r\nimport hi.model.LibrarySystem;\r\nimport hi.model.Student;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.ListView;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.text.Text;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class LibraryController implements ControllerWithModel, ControllerUsingModelInInInitialize {\r\n\r\n    @FXML\r\n    private ListView<Book> fxBooksInBasket;\r\n    @FXML\r\n    private BookView fxBookshelf;\r\n    @FXML\r\n    private Button fxCheckout;\r\n    @FXML\r\n    private Button fxAdd;\r\n    @FXML\r\n    private Button fxReturn;\r\n    @FXML\r\n    private Button fxSignInStudent;\r\n    @FXML\r\n    private Button fxSignInFaculty;\r\n    @FXML\r\n    private Label fxName;\r\n    @FXML\r\n    private Label fxLoginNotification;\r\n    @FXML\r\n    private Text userTitle;\r\n\r\n    private Stage primaryStage;\r\n    private ObservableList<Book> booksInBasket = FXCollections.observableArrayList();\r\n    private LibrarySystem model;\r\n\r\n    @FXML\r\n    public void fxSignInStudentHandler() {\r\n        //Student newStudent = new Student(\"\", true);\r\n        //StudentDialog s = new StudentDialog(newStudent);\r\n        //Optional<Student> result = s.showAndWait();\r\n        //result.ifPresent(value -> fxName.setText(value.getName()));\r\n        //librarySystem.addStudentUser(newStudent.getName(), newStudent.isFeePaid());\r\n        //student = newStudent;\r\n        ViewSwitcher.switchTo(View.STUDENT, model);\r\n    }\r\n\r\n\r\n    public void switchToLibraryView() throws IOException {\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"library-view.fxml\"));\r\n        Parent root = loader.load();\r\n        LibraryController controller = loader.getController();\r\n        controller.setModel(model);\r\n\r\n        Scene scene = new Scene(root);\r\n        Stage stage = (Stage) primaryStage.getScene().getWindow();\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public void setModel(LibrarySystem model) {\r\n        this.model = model;\r\n    }\r\n\r\n    public void fxSignInFacultyHandler(MouseEvent actionEvent) {\r\n        /*FacultyMember newFaculty = new FacultyMember(\"\", \"\");\r\n        FacultyDialog f = new FacultyDialog(newFaculty);\r\n        Optional<FacultyMember> result = f.showAndWait();\r\n        result.ifPresent(value -> fxName.setText(value.getName()));\r\n        model.addFacultyMemberUser(newFaculty.getName(), newFaculty.getDepartment());\r\n        facultyMember = newFaculty;\r\n        */\r\n        ViewSwitcher.switchTo(View.FACULTY, model);\r\n    }\r\n\r\n    @FXML\r\n    public void fxAddBookHandler() {\r\n        if (model.getCurrentUser() != null) {\r\n            fxBookshelf.getSelectionModel().getSelectedItems().forEach(selected -> {\r\n                fxBooksInBasket.getItems().add((Book) selected);\r\n                booksInBasket.add((Book) selected);\r\n            });\r\n           /* if(student == null){\r\n                librarySystem.getFxLendings().add(new Lending(facultyMember, (Book) fxBookshelf.getSelectionModel().getSelectedItem()));\r\n            }else{\r\n                librarySystem.getFxLendings().add(new Lending(student, (Book) fxBookshelf.getSelectionModel().getSelectedItem()));\r\n            }*/\r\n        } else {\r\n            fxAdd.setDisable(true);\r\n            fxCheckout.setDisable(true);\r\n            fxReturn.setDisable(true);\r\n            setLoginNotification(true);\r\n        }\r\n\r\n    }\r\n\r\n    @FXML\r\n    public void fxCheckoutHandler() {\r\n        if (!fxBooksInBasket.getItems().isEmpty()) {\r\n            System.out.println(\"Checking out\");\r\n            ViewSwitcher.switchTo(View.CHECKOUT, model);\r\n        } else {\r\n            System.out.println(\"No books to checkout\");\r\n        }\r\n\r\n    }\r\n\r\n    @FXML\r\n    public void fxRemoveBookHandler(ActionEvent actionEvent) {\r\n        Book selected = fxBooksInBasket.getSelectionModel().getSelectedItem();\r\n        fxBooksInBasket.getItems().remove(selected);\r\n        booksInBasket.remove(selected);\r\n    }\r\n\r\n    public void initialize() {\r\n        fxBookshelf.setBooks();\r\n        setLoginNotification(false);\r\n    }\r\n\r\n    public void updateFromModel() {\r\n        updateLogintext();\r\n    }\r\n\r\n    public void updateLogintext() {\r\n        if (model.getCurrentUser() != null) {\r\n            if (model.getCurrentUser() instanceof Student) {\r\n                userTitle.setText(\"Logged in as Student: \" + (model.getCurrentUser()).getName());\r\n            } else {\r\n                try {\r\n                    userTitle.setText(\"Logged in as: \" + (model.getCurrentUser()).getName() + \", \" + model.findFacultyByName(model.getCurrentUser().getName()).getDepartment());\r\n                } catch (Exception e) {\r\n                    userTitle.setText(\"Logged in as: \" + (model.getCurrentUser()).getName());\r\n                }\r\n            }\r\n        } else {\r\n            userTitle.setText(\"Not signed in, sign in to continue\");\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    public void fxMyLendingsHandler() {\r\n        ViewSwitcher.switchTo(View.MYLENDINGS, model);\r\n    }\r\n\r\n    public void setLoginNotification(boolean visable) {\r\n        fxLoginNotification.setVisible(visable);\r\n        fxLoginNotification.setMouseTransparent(!visable);\r\n    }\r\n\r\n    @FXML\r\n    public void handleClick() {\r\n        System.out.println(\"Clicked\");\r\n        updateLogintext();\r\n    }\r\n\r\n    public ObservableList<Book> getBooksInBasket() {\r\n        return booksInBasket;\r\n    }\r\n\r\n    public ListView<Book> getFxBooksInBasket() {\r\n        return fxBooksInBasket;\r\n    }\r\n    \r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/hi/userinterface/finalproject2/LibraryController.java b/src/main/java/hi/userinterface/finalproject2/LibraryController.java
+--- a/src/main/java/hi/userinterface/finalproject2/LibraryController.java	(revision 500d4c752fdc0425474f2401abdea62d1d8cf5ef)
++++ b/src/main/java/hi/userinterface/finalproject2/LibraryController.java	(date 1681462852980)
+@@ -151,7 +151,11 @@
+ 
+     @FXML
+     public void fxMyLendingsHandler() {
+-        ViewSwitcher.switchTo(View.MYLENDINGS, model);
++        if(model.getCurrentUser() != null){
++            ViewSwitcher.switchTo(View.MYLENDINGS, model);
++        } else {
++            setLoginNotification(true);
++        }
+     }
+ 
+     public void setLoginNotification(boolean visable) {
+Index: src/main/java/hi/userinterface/finalproject2/CheckOutController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hi.userinterface.finalproject2;\r\n\r\nimport hi.model.LibrarySystem;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.ListView;\r\n\r\n/******************************************************************************\r\n *  Nafn    : Lilja Kolbrún Schopka\r\n *  T-póstur: lks17@hi.is\r\n *\r\n *  Lýsing  :\r\n *\r\n *\r\n *\r\n *\r\n *****************************************************************************/\r\npublic class CheckOutController {\r\n\r\n    @FXML\r\n    private Button fxCancel;\r\n    @FXML\r\n    private Button fxConfirm;\r\n    @FXML\r\n    private ListView fxLendings;\r\n\r\n    private LibrarySystem model;\r\n    private LibraryController libraryController = ViewSwitcher.getController(View.LIBRARY);\r\n\r\n    @FXML\r\n    public void fxCancelHandler(ActionEvent actionEvent) {\r\n        ViewSwitcher.switchTo(View.LIBRARY, model);\r\n    }\r\n\r\n    @FXML\r\n    public void fxConfirmHandler(ActionEvent actionEvent) {\r\n        int size = libraryController.getBooksInBasket().size();\r\n        for (int i = 0; i < size; i++) {\r\n            //Lending l = new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i));\r\n            System.out.println(\"user:\" + model.getCurrentUser().getName());\r\n            System.out.println(\"book\" + i + \"in basket: \" + libraryController.getBooksInBasket().get(i).getTitle());\r\n            //model.getLendings().add(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));\r\n            //model.getCurrentUser().addLending(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));\r\n            //l = null;\r\n        }\r\n        ViewSwitcher.switchTo(View.LIBRARY, model);\r\n    }\r\n\r\n    public void setModel(LibrarySystem model) {\r\n        this.model = model;\r\n    }\r\n\r\n    public void initialize() {\r\n        fxLendings.setItems(libraryController.getBooksInBasket());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/hi/userinterface/finalproject2/CheckOutController.java b/src/main/java/hi/userinterface/finalproject2/CheckOutController.java
+--- a/src/main/java/hi/userinterface/finalproject2/CheckOutController.java	(revision 500d4c752fdc0425474f2401abdea62d1d8cf5ef)
++++ b/src/main/java/hi/userinterface/finalproject2/CheckOutController.java	(date 1681463228253)
+@@ -16,7 +16,7 @@
+  *
+  *
+  *****************************************************************************/
+-public class CheckOutController {
++public class CheckOutController implements ControllerUsingModelInInInitialize {
+ 
+     @FXML
+     private Button fxCancel;
+Index: src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hi.userinterface.finalproject2;\r\n\r\nimport hi.model.LibrarySystem;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\n\r\nimport java.io.IOException;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\n/**\r\n * @author Almas Baimagambetov (almaslvl@gmail.com)\r\n * <p>\r\n * EÞH - changed to include caching of controllers\r\n */\r\npublic class ViewSwitcher {\r\n    private static final Map<View, Parent> cache = new HashMap<>();\r\n    private static final Map<View, Object> controllers = new HashMap<>();\r\n    private static Scene scene;\r\n\r\n    public static void setScene(Scene scene) {\r\n        ViewSwitcher.scene = scene;\r\n    }\r\n\r\n    public static void switchTo(View view, LibrarySystem model) {\r\n        if (scene == null) {\r\n            System.out.println(\"No scene was set\");\r\n            return;\r\n        }\r\n\r\n        try {\r\n            Parent root;\r\n            FXMLLoader loader = new FXMLLoader(ViewSwitcher.class.getResource(view.getFileName()));\r\n            root = loader.load();\r\n            Object controller = loader.getController();\r\n            if (controller instanceof ControllerWithModel) {\r\n                ((ControllerWithModel) controller).setModel(model); // set the model\r\n            }\r\n            if (controller instanceof LibraryController || controller instanceof MyLendingsController) {\r\n                ((ControllerUsingModelInInInitialize) controller).updateFromModel();\r\n            }\r\n            controllers.put(view, controller); // save the controller\r\n            cache.put(view, root); // save the view\r\n            scene.setRoot(root);\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public static <T> T getController(View view) {\r\n        return (T) controllers.get(view);\r\n    }\r\n    \r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java b/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java
+--- a/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java	(revision 500d4c752fdc0425474f2401abdea62d1d8cf5ef)
++++ b/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java	(date 1681462627657)
+@@ -37,7 +37,7 @@
+             if (controller instanceof ControllerWithModel) {
+                 ((ControllerWithModel) controller).setModel(model); // set the model
+             }
+-            if (controller instanceof LibraryController || controller instanceof MyLendingsController) {
++            if (controller instanceof MyLendingsController) {
+                 ((ControllerUsingModelInInInitialize) controller).updateFromModel();
+             }
+             controllers.put(view, controller); // save the controller
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"54867222-7d85-4691-ba19-5317a2dff218\" name=\"Changes\" comment=\"laga pinu\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JavaFXApplication\" />\r\n        <option value=\"FxmlFile\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2O4JcBo35qaglqX7B08dpncivGK\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"abbreviatePackageNames\" value=\"true\" />\r\n    <option name=\"autoscrollFromSource\" value=\"true\" />\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showModules\" value=\"false\" />\r\n    <option name=\"sortByType\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/Users/liljaschopka/Desktop/Tölvunarfræði/Hugbúnaðarhönnun/finalProject2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"54867222-7d85-4691-ba19-5317a2dff218\" name=\"Changes\" comment=\"\" />\r\n      <created>1681239702168</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681239702168</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Breyta og svona\">\r\n      <created>1681241138799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681241138799</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Changed to using viewswitcher to do logins instead of using dialogs\">\r\n      <created>1681250102625</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681250102625</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added my lendings view and Controller\">\r\n      <created>1681298248870</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681298248870</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Breyta og svona\" />\r\n    <MESSAGE value=\"Changed to using viewswitcher to do logins instead of using dialogs\" />\r\n    <MESSAGE value=\"Added my lendings view and Controller\" />\r\n    <MESSAGE value=\"laga pinu\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"laga pinu\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.IllegalArgumentException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 500d4c752fdc0425474f2401abdea62d1d8cf5ef)
++++ b/.idea/workspace.xml	(date 1681463228289)
+@@ -6,6 +6,8 @@
+   <component name="ChangeListManager">
+     <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="laga pinu">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/CheckOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/CheckOutController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/ViewSwitcher.java" afterDir="false" />
+     </list>
+@@ -75,7 +77,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1681298248870</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="laga pinu">
++      <created>1681462161081</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1681462161081</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
