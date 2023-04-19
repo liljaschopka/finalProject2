@@ -1,2 +1,2 @@
 # Final Project in Hugbúnaðarhönnun og forritun
- 
+Our final project is based on the library system assignment. We have made an user interface with Javafx that has most if not all of the functions from the library system class. The user can sign in either as a student or faculty, pick books to lend and then checkout. Then the user can view the books he's currently lending and return them as well. If the user is a faculty member he can also extend his lendings. 
