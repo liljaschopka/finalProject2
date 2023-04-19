@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Laga" />
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Fixed signed in as text on main screen, vas not displaying User name" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681298248870</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed signed in as text on main screen, vas not displaying User name">
+      <created>1681567713130</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681567713130</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -79,7 +86,8 @@
     <MESSAGE value="Changed to using viewswitcher to do logins instead of using dialogs" />
     <MESSAGE value="Added my lendings view and Controller" />
     <MESSAGE value="laga pinu" />
-    <option name="LAST_COMMIT_MESSAGE" value="laga pinu" />
+    <MESSAGE value="Fixed signed in as text on main screen, vas not displaying User name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed signed in as text on main screen, vas not displaying User name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
