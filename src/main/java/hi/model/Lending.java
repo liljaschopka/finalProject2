@@ -40,7 +40,7 @@ public class Lending {
 
     @Override
     public String toString() {
-        return book+", return by: "+ dueDate;
+        return book + ", return by: " + dueDate;
     }
 
 }

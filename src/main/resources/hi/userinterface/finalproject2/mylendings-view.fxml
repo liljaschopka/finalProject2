@@ -8,17 +8,20 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.userinterface.finalproject2.MyLendingsController">
 
+
     <Label layoutX="14.0" layoutY="11.0" text="Your Lendings">
         <font>
             <Font name="System Bold" size="32.0"/>
         </font>
     </Label>
 
-    <MyLendingsView fx:id="fxMyLendingsView" layoutX="14.0" layoutY="50.0" prefHeight="300.0"/>
-    <Button fx:id="fxReturnBook" layoutX="270.0" layoutY="290.0" onAction="#fxReturnBookHandler" prefHeight="26.0"
+    <MyLendingsView fx:id="fxMyLendingsView" layoutX="14.0" layoutY="50.0" prefHeight="299.0" prefWidth="334.0"/>
+    <Button fx:id="fxReturnBook" layoutX="355.0" layoutY="289.0" onAction="#fxReturnBookHandler" prefHeight="26.0"
             prefWidth="92.0" text="Return book"/>
-    <Button fx:id="Back" layoutX="355.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#fxBackToMenuHandler"
+    <Button fx:id="fxBack" layoutX="355.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#fxBackToMenuHandler"
             text="Back to menu"/>
-    <Button fx:id="fxExtendLEndingButton" layoutX="270.0" layoutY="222.0" mnemonicParsing="false"
-            onMouseClicked="#extendLendingHandler" text="Extend lending" visible="false"/>
+    <Button fx:id="fxExtendLEndingButton" layoutX="355.0" layoutY="222.0" mnemonicParsing="false"
+            onMouseClicked="#extendLendingHandler" prefHeight="26.0" prefWidth="116.0" text="Extend lending"
+            visible="false"/>
+
 </AnchorPane>

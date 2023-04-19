@@ -18,8 +18,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
     public Button fxReturnBook;
     @FXML
     public Button fxExtendLEndingButton;
-
-    public Button Back;
+    @FXML
+    public Button fxBack;
     private LibrarySystem model;
     private LibraryController libraryController = ViewSwitcher.getController(View.LIBRARY);
 
@@ -46,7 +46,7 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
         if (!lendinglist.isEmpty()) {
             fxMyLendings = new ListView<>(lendinglist);
         }
-        if(model.getCurrentUser() instanceof FacultyMember) {
+        if (model.getCurrentUser() instanceof FacultyMember) {
             fxExtendLEndingButton.setVisible(true);
         }
         fxMyLendingsView.setModel(model);

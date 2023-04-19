@@ -19,22 +19,29 @@
 +findUserByName(String name): User
 +borrowBook(User user, Book book): void
 +extendLending(FacultyMember facultyMember, Book book, LocalDate newDueDate): void
-+returnBook(User user, Book book): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>180</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>310</y><w>210</w><h>110</h></coordinates><panel_attributes>User {Abstract}
++returnBook(User user, Book book): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>180</y><w>30</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>260</y><w>210</w><h>160</h></coordinates><panel_attributes>User {Abstract}
 --
--name: String
+-name: StringProperty
+-nameString: String
+-lendings: ObservableList&lt;Lending&gt;
 --
 +User(String name): ctor
++getNameString(): String
 +getName(): String
-+setName(String name): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>180</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>300</y><w>80</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
++nameProperty(): StringProperty
++setName(String name): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>180</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>300</y><w>80</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
 User
-</panel_attributes><additional_attributes>60;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>510</y><w>320</w><h>100</h></coordinates><panel_attributes>FacultyMember
+</panel_attributes><additional_attributes>60;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>510</y><w>320</w><h>140</h></coordinates><panel_attributes>FacultyMember
 --
--department: String
+-department: SimpleStringProperty()
+-derpartmentString: String
 --
 +FacultyMemberString name, String department): ctor
 +getDepartment(): String
-+setDepartment(String department): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>510</y><w>280</w><h>100</h></coordinates><panel_attributes>Student
++getDepartmentString(): String
++setDepartment(String department): void
++departmentProperty(): StringProperty</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>510</y><w>280</w><h>100</h></coordinates><panel_attributes>Student
 --
 -feePaid: boolean
 --

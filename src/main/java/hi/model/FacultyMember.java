@@ -6,7 +6,6 @@ import javafx.beans.property.StringProperty;
 public class FacultyMember extends User {
 
     private StringProperty department = new SimpleStringProperty();
-
     private String departmentString;
 
     public FacultyMember(String name, String dm) {

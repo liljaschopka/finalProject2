@@ -48,12 +48,6 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
 
     @FXML
     public void fxSignInStudentHandler() {
-        //Student newStudent = new Student("", true);
-        //StudentDialog s = new StudentDialog(newStudent);
-        //Optional<Student> result = s.showAndWait();
-        //result.ifPresent(value -> fxName.setText(value.getName()));
-        //librarySystem.addStudentUser(newStudent.getName(), newStudent.isFeePaid());
-        //student = newStudent;
         ViewSwitcher.switchTo(View.STUDENT, model);
     }
 
@@ -75,13 +69,6 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
     }
 
     public void fxSignInFacultyHandler(MouseEvent actionEvent) {
-        /*FacultyMember newFaculty = new FacultyMember("", "");
-        FacultyDialog f = new FacultyDialog(newFaculty);
-        Optional<FacultyMember> result = f.showAndWait();
-        result.ifPresent(value -> fxName.setText(value.getName()));
-        model.addFacultyMemberUser(newFaculty.getName(), newFaculty.getDepartment());
-        facultyMember = newFaculty;
-        */
         ViewSwitcher.switchTo(View.FACULTY, model);
     }
 
@@ -92,11 +79,7 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
                 fxBooksInBasket.getItems().add((Book) selected);
                 booksInBasket.add((Book) selected);
             });
-           /* if(student == null){
-                librarySystem.getFxLendings().add(new Lending(facultyMember, (Book) fxBookshelf.getSelectionModel().getSelectedItem()));
-            }else{
-                librarySystem.getFxLendings().add(new Lending(student, (Book) fxBookshelf.getSelectionModel().getSelectedItem()));
-            }*/
+      
         } else {
             fxAdd.setDisable(true);
             fxCheckout.setDisable(true);
@@ -151,7 +134,7 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
 
     @FXML
     public void fxMyLendingsHandler() {
-        if(model.getCurrentUser() != null){
+        if (model.getCurrentUser() != null) {
             ViewSwitcher.switchTo(View.MYLENDINGS, model);
         } else {
             setLoginNotification(true);
