@@ -14,7 +14,7 @@ public class LendingTest {
         Book book = new Book("Life of Pi", authors);
         FacultyMember user1 = new FacultyMember("Egill", "Computer Science");
         Lending lending = new Lending(user1, book);
-        assertEquals("Lending the book Life of Pi should return Life of Pi", book, lending.getBook());
+        assertEquals("Lending with the book Life of Pi should return Life of Pi", book, lending.getBook());
         assertEquals("Lending with user Egill shold return user Egill", user1, lending.getUser());
     }
 

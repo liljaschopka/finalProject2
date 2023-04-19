@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Added extend lending option for faculty members">
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="fixed myLendings not updating after lending is extending">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/LendingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/LendingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681922926036</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed myLendings not updating after lending is extending">
+      <created>1681924044821</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681924044821</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -111,7 +119,8 @@
     <MESSAGE value="laga pinu" />
     <MESSAGE value="Fixed signed in as text on main screen, vas not displaying User name" />
     <MESSAGE value="Added extend lending option for faculty members" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added extend lending option for faculty members" />
+    <MESSAGE value="fixed myLendings not updating after lending is extending" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed myLendings not updating after lending is extending" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
