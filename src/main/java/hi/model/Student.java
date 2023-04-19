@@ -16,4 +16,12 @@ public class Student extends User {
     public void setFeePaid(boolean feePaid) {
         this.feePaid = feePaid;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + getName() + '\'' +
+                ", feePaid=" + feePaid +
+                '}';
+    }
 }

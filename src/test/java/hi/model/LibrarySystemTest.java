@@ -2,23 +2,15 @@ package hi.model;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class LibrarySystemTest {
 
     @Test
-    public void testLibrary() throws UserOrBookDoesNotExistException {
+    public void testLibrary() {
         LibrarySystem model = new LibrarySystem();
-        if(model.getCurrentUser() != null) {
-            if(model.getCurrentUser() instanceof Student) {
-                System.out.println("Logged in as Student: " +(model.getCurrentUser()).getName());
-            }else{
-                try{
-                    System.out.println("Logged in as: " +(model.getCurrentUser()).getName()+", "+ model.findFacultyByName(model.getCurrentUser().getName()).getDepartment());
-                } catch (Exception e){
-                    System.out.println("Logged in as: " +(model.getCurrentUser()).getName());
-                }
-            }
-        } else {
-            System.out.println("Not signed in, sign in to continue");
-        }
+        Student s1 = new Student("Egill", true);
+        model.setCurrentUser(new Student("Egill", true));
+        assertEquals("Current user set to Student Egill, should return student Egill", s1.toString(), ((Student)model.getCurrentUser()).toString());
     }
 }
