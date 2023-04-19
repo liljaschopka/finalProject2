@@ -37,6 +37,7 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
 
     public void setModel(LibrarySystem model) {
         this.model = model;
+
     }
 
     @Override
@@ -48,6 +49,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
         if(model.getCurrentUser() instanceof FacultyMember) {
             fxExtendLEndingButton.setVisible(true);
         }
+        fxMyLendingsView.setModel(model);
+        fxMyLendingsView.setLendings();
     }
 
     public void fxBackToMenuHandler() {
@@ -83,6 +86,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
             Lending lendingToExtend = (Lending) fxMyLendingsView.getSelectionModel().getSelectedItem();
             model.extendLending(lendingToExtend);
         }
-        updateFromModel();
+        fxMyLendingsView.getSelectionModel().clearSelection();
+        fxMyLendingsView.setLendings();
+        fxMyLendings.setItems(model.getCurrentUser().getLendings());
     }
 }

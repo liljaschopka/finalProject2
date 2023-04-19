@@ -33,7 +33,6 @@ public class MyLendingsView extends ListView {
 
     public void setLendings() {
         System.out.println("lendings put");
-        getModel();
         setItems(model.getCurrentUser().getLendings());
     }
 
