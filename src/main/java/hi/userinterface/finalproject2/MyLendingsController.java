@@ -1,6 +1,7 @@
 package hi.userinterface.finalproject2;
 
 import hi.model.Book;
+import hi.model.FacultyMember;
 import hi.model.Lending;
 import hi.model.LibrarySystem;
 import javafx.collections.ObservableList;
@@ -15,6 +16,8 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
     public MyLendingsView fxMyLendingsView;
     @FXML
     public Button fxReturnBook;
+    @FXML
+    public Button fxExtendLEndingButton;
 
     public Button Back;
     private LibrarySystem model;
@@ -23,6 +26,7 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
 
     public void initialize() {
         model = libraryController.getModel();
+        fxExtendLEndingButton.setVisible(false);
         fxMyLendingsView.setModel(model);
         fxMyLendingsView.setLendings();
         int size = model.getCurrentUser().getLendings().size();
@@ -40,6 +44,9 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
         ObservableList<Lending> lendinglist = model.getCurrentUser().getLendings();
         if (!lendinglist.isEmpty()) {
             fxMyLendings = new ListView<>(lendinglist);
+        }
+        if(model.getCurrentUser() instanceof FacultyMember) {
+            fxExtendLEndingButton.setVisible(true);
         }
     }
 
@@ -66,5 +73,16 @@ public class MyLendingsController implements ControllerWithModel, ControllerUsin
             fxMyLendings.getSelectionModel().clearSelection();
             System.out.println(model.getCurrentUser().getLendings().size());
         }
+    }
+
+    public void extendLendingHandler() {
+        if (fxMyLendingsView.getSelectionModel().getSelectedItem() == null) {
+            fxMyLendingsView.getSelectionModel().clearSelection();
+            System.out.println("No book selected");
+        } else {
+            Lending lendingToExtend = (Lending) fxMyLendingsView.getSelectionModel().getSelectedItem();
+            model.extendLending(lendingToExtend);
+        }
+        updateFromModel();
     }
 }

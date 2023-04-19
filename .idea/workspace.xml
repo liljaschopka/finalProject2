@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Fixed signed in as text on main screen, vas not displaying User name" />
+    <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="Fixed signed in as text on main screen, vas not displaying User name">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/FacultyMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/FacultyMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/MyLendingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/mylendings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hi/userinterface/finalproject2/mylendings-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

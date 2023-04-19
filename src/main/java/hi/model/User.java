@@ -9,7 +9,7 @@ public class User {
 
     private StringProperty name = new SimpleStringProperty();
     private String nameString;
-    private ObservableList<Lending> lendings = FXCollections.observableArrayList();
+    public ObservableList<Lending> lendings = FXCollections.observableArrayList();
 
     public User(String n) {
         name.set(n);

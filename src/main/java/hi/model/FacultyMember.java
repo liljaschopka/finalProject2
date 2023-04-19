@@ -30,4 +30,12 @@ public class FacultyMember extends User {
     public StringProperty departmentProperty() {
         return department;
     }
+
+    public void extendLending(Lending l) {
+        for(int i = 0; i < lendings.size(); i++) {
+            if(lendings.get(i).getBook().equals(l.getBook())) {
+                lendings.get(i).setDueDate(l.getDueDate().plusDays(30));
+            }
+        }
+    }
 }

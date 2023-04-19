@@ -101,17 +101,20 @@ public class LibrarySystem {
         currentUser.addLending(lending);
     }
 
-    public void extendLending(Book book, LocalDate newDueDate) {
+    public void extendLending(Lending lending) {
+        LocalDate newDueDate = lending.getDueDate().plusDays(30);
         if(currentUser instanceof FacultyMember) {
             FacultyMember faculty = (FacultyMember) currentUser;
             for (int i = 0; i < lendings.size(); i++) {
-                if (lendings.get(i).getUser().getName().equals(faculty.getName()) && lendings.get(i).getBook().getTitle().equals(book.getTitle())) {
+                if (lendings.get(i).getUser().getName().equals(faculty.getName()) && lendings.get(i).getBook().getTitle().equals(lending.getBook().getTitle())) {
                     lendings.get(i).setDueDate(newDueDate);
+                    System.out.println("Lending extended in model");
                 }
             }
             for(int i = 0; i < faculty.getLendings().size(); i++) {
-                if(faculty.getLendings().get(i).getBook().getTitle().equals(book.getTitle())) {
+                if(faculty.getLendings().get(i).equals(lending)) {
                     faculty.getLendings().get(i).setDueDate(newDueDate);
+                    System.out.println("Lending extended in User");
                 }
             }
         }
