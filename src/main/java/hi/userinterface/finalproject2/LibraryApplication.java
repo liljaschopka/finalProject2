@@ -11,7 +11,7 @@ import java.io.IOException;
 public class LibraryApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        var scene = new Scene(new Pane());
+        Scene scene = new Scene(new Pane());
         LibrarySystem model = new LibrarySystem();
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.LIBRARY, model);
