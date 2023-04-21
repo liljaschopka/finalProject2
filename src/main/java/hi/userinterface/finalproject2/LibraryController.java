@@ -1,7 +1,6 @@
 package hi.userinterface.finalproject2;
 
 import hi.model.Book;
-import hi.model.EmptyAuthorListException;
 import hi.model.LibrarySystem;
 import hi.model.Student;
 import javafx.collections.FXCollections;
@@ -109,11 +108,7 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
     }
 
     public void initialize() {
-        try{
-            fxBookshelf.setBooks();
-        } catch (EmptyAuthorListException e) {
-            System.out.println(e.getMessage());
-        }
+        fxBookshelf.setBooks();
         setLoginNotification(false);
     }
 
