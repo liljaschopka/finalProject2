@@ -32,7 +32,7 @@ How to run the project:
 
 - You can run it by running LibraryApplication
 - You can run it with maven
-- You can run it by running the command `source runjar.cmd`
+- You can run it by running the command `source runjar.cmd` (this runs the jar file)
 
 Maven:
 
