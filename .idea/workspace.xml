@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="54867222-7d85-4691-ba19-5317a2dff218" name="Changes" comment="fixed myLendings not updating after lending is extending">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/LendingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/LendingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/FacultyMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/FacultyMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/model/LibrarySystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/BookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/BookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/CheckOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/CheckOutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hi/userinterface/finalproject2/LibraryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/BookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/BookTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hi/model/LibrarySystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

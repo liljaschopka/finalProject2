@@ -8,12 +8,12 @@ public class Book {
     private List<Author> authors;
 
 
-    public Book(String title, List<Author> authors) /*throws EmptyAuthorListException */ {
+    public Book(String title, List<Author> authors) throws EmptyAuthorListException {
         this.title = title;
         this.authors = authors;
-        /*if (authors.isEmpty()) {
+        if (authors.isEmpty()) {
             throw new EmptyAuthorListException("The author list is empty");
-        }*/
+        }
     }
 
     public String getTitle() {

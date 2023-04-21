@@ -18,9 +18,10 @@ public class BookTest {
         assertEquals("Book with ArrayList authors should return authors", authors, book1.getAuthors());
     }
 
-    /*@Test (expected = EmptyAuthorListException.class)
+    @Test(expected = EmptyAuthorListException.class)
     public void testBookWithEmptyAuthorList() throws EmptyAuthorListException {
         ArrayList<Author> authors = new ArrayList<>();
-        Book book1 = new Book("Life of Pi", authors);*/
+        Book book1 = new Book("Life of Pi", authors);
+    }
 }
 

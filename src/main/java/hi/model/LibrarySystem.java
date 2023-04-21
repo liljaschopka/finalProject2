@@ -13,7 +13,6 @@ public class LibrarySystem {
     private ObservableList<Book> fxBooks = FXCollections.observableArrayList();
     private List<User> users;
     private List<Lending> lendings;
-    private ObservableList<Lending> fxLendings = FXCollections.observableArrayList();
     private User currentUser = null;
 
     public LibrarySystem() {
@@ -145,15 +144,8 @@ public class LibrarySystem {
         return lendings;
     }
 
-    public ObservableList<Lending> getFxLendings() {
-        return fxLendings;
-    }
-
-    public void setFxLendings(ObservableList<Lending> fxLendings) {
-        this.fxLendings = fxLendings;
-    }
-
-    public void setBooks() {
+    public void setBooks(){
+        try {
         ArrayList<Author> Mockingbird = new ArrayList<>();
         Mockingbird.add(new Author("Harper Lee"));
         ArrayList<Author> Pride = new ArrayList<>();
@@ -184,6 +176,9 @@ public class LibrarySystem {
         books.add(new Book("Of Mice and Men", OfMiceAndMen));
 
         System.out.println("books are made");
+        } catch (Exception e) {
+            System.out.println("books are not made");
+        }
     }
 
     public void setFxBooks() {
@@ -207,16 +202,19 @@ public class LibrarySystem {
         TheTaleOfTwoCities.add(new Author("Charles Dickens"));
         ArrayList<Author> OfMiceAndMen = new ArrayList<>();
         OfMiceAndMen.add(new Author("John Steinbeck"));
+        try {
+            fxBooks.add(new Book("To Kill a Mockingbird", Mockingbird));
+            fxBooks.add(new Book("Pride and Prejudice", Pride));
+            fxBooks.add(new Book("Moby Dick", Moby));
+            fxBooks.add(new Book("Gatsby", Gatsby));
+            fxBooks.add(new Book("Frankenstein", Frankenstein));
+            fxBooks.add(new Book("The Tale of Two Cities", TheTaleOfTwoCities));
+            fxBooks.add(new Book("Of Mice and Men", OfMiceAndMen));
 
-        fxBooks.add(new Book("To Kill a Mockingbird", Mockingbird));
-        fxBooks.add(new Book("Pride and Prejudice", Pride));
-        fxBooks.add(new Book("Moby Dick", Moby));
-        fxBooks.add(new Book("Gatsby", Gatsby));
-        fxBooks.add(new Book("Frankenstein", Frankenstein));
-        fxBooks.add(new Book("The Tale of Two Cities", TheTaleOfTwoCities));
-        fxBooks.add(new Book("Of Mice and Men", OfMiceAndMen));
-
-        System.out.println("books are made");
+            System.out.println("books are made");
+        } catch (Exception e) {
+            System.out.println("books are not made");
+        }
     }
 
 }

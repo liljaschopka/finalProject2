@@ -1,6 +1,5 @@
 package hi.userinterface.finalproject2;
 
-import hi.model.Lending;
 import hi.model.LibrarySystem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,9 +40,7 @@ public class CheckOutController implements ControllerWithModel {
             //Lending l = new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i));
             System.out.println("user:" + model.getCurrentUser().getName());
             System.out.println("book" + i + "in basket: " + libraryController.getBooksInBasket().get(i).getTitle());
-            model.getLendings().add(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));
-            model.getCurrentUser().addLending(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));
-            //l = null;
+            model.borrowBook(libraryController.getBooksInBasket().get(i));
         }
         ViewSwitcher.switchTo(View.LIBRARY, model);
     }

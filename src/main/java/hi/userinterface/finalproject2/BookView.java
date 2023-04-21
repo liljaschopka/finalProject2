@@ -1,5 +1,6 @@
 package hi.userinterface.finalproject2;
 
+import hi.model.EmptyAuthorListException;
 import hi.model.LibrarySystem;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
@@ -31,7 +32,7 @@ public class BookView extends ListView {
         }
     }
 
-    public void setBooks() {
+    public void setBooks() throws EmptyAuthorListException {
         librarySystem.setBooks();
         librarySystem.setFxBooks();
         System.out.println("gögn sett");
