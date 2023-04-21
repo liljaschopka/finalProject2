@@ -14,6 +14,7 @@ public class FacultyLoginController implements ControllerWithModel {
     TextField fxName;
     @FXML
     TextField fxDepartment;
+
     public void initialize() {
         System.out.println("Faculty Login Controller initialized");
     }
@@ -26,9 +27,9 @@ public class FacultyLoginController implements ControllerWithModel {
         model.setCurrentUser(user);
         ViewSwitcher.switchTo(View.LIBRARY, model);
     }
+
     @FXML
     public void handleOKClicked() throws UserOrBookDoesNotExistException {
-        System.out.println("OK clicked");
         String name = fxName.getText();
         String department = fxDepartment.getText();
         try {
@@ -44,7 +45,6 @@ public class FacultyLoginController implements ControllerWithModel {
 
     @FXML
     public void handleCancelClicked() {
-        System.out.println("Cancel clicked");
         ViewSwitcher.switchTo(View.LIBRARY, model);
     }
 }

@@ -79,7 +79,7 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
                 fxBooksInBasket.getItems().add((Book) selected);
                 booksInBasket.add((Book) selected);
             });
-      
+
         } else {
             fxAdd.setDisable(true);
             fxCheckout.setDisable(true);
@@ -148,7 +148,6 @@ public class LibraryController implements ControllerWithModel, ControllerUsingMo
 
     @FXML
     public void handleClick() {
-        System.out.println("Clicked");
         updateLogintext();
     }
 

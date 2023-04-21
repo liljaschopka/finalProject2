@@ -1,1 +1,1 @@
-java -jar target/finalProject2-1.0-SNAPSHOT.jar
+java -jar target/finalProject2-1.0-SNAPSHOT-jar-with-dependencies.jar

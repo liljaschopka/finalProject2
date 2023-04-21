@@ -17,7 +17,6 @@ The directories in the project:
 
 - `src/test/java/hi`:
     - `model`: Test cases testing the library system classes.
-    - `userinterface/finalproject2`: Test cases testing the specialised ListView classes.
 
 - `src/main/resources/hi/userinterface/finalproject2`: The fxml files for the user interface.
 
@@ -33,7 +32,7 @@ How to run the project:
 
 - You can run it by running LibraryApplication
 - You can run it with maven
-- You can run it by running the command source runjar.cmd
+- You can run it by running the command `source runjar.cmd`
 
 Maven:
 

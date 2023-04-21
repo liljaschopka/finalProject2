@@ -31,10 +31,12 @@ public class BookView extends ListView {
         }
     }
 
+    /**
+     * This method sets the books in the list view in the user interface.
+     */
     public void setBooks() {
         librarySystem.setBooks();
         librarySystem.setFxBooks();
-        System.out.println("gögn sett");
         setItems(librarySystem.getFxBooks());
     }
 }

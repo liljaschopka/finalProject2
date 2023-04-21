@@ -183,7 +183,6 @@ public class LibrarySystem {
         books.add(new Book("The Tale of Two Cities", TheTaleOfTwoCities));
         books.add(new Book("Of Mice and Men", OfMiceAndMen));
 
-        System.out.println("books are made");
     }
 
     public void setFxBooks() {
@@ -216,7 +215,6 @@ public class LibrarySystem {
         fxBooks.add(new Book("The Tale of Two Cities", TheTaleOfTwoCities));
         fxBooks.add(new Book("Of Mice and Men", OfMiceAndMen));
 
-        System.out.println("books are made");
     }
 
 }
