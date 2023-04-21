@@ -1,5 +1,6 @@
 package hi.userinterface.finalproject2;
 
+import hi.model.Lending;
 import hi.model.LibrarySystem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.control.ListView;
  *  Nafn    : Lilja Kolbrún Schopka
  *  T-póstur: lks17@hi.is
  *
- *  Lýsing  :
+ *  Description  : This is the controller class for the checkout scene.
  *
  *
  *
@@ -28,19 +29,27 @@ public class CheckOutController implements ControllerWithModel {
     private LibrarySystem model;
     private LibraryController libraryController = ViewSwitcher.getController(View.LIBRARY);
 
+    /**
+     * Handler for the cancel button
+     *
+     * @param actionEvent
+     */
     @FXML
     public void fxCancelHandler(ActionEvent actionEvent) {
         ViewSwitcher.switchTo(View.LIBRARY, model);
     }
 
+    /**
+     * Handler for the confirm button. It adds lendings to the current user and then switches back to the library scene.
+     *
+     * @param actionEvent
+     */
     @FXML
     public void fxConfirmHandler(ActionEvent actionEvent) {
         int size = libraryController.getBooksInBasket().size();
         for (int i = 0; i < size; i++) {
-            //Lending l = new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i));
-            System.out.println("user:" + model.getCurrentUser().getName());
-            System.out.println("book" + i + "in basket: " + libraryController.getBooksInBasket().get(i).getTitle());
-            model.borrowBook(libraryController.getBooksInBasket().get(i));
+            model.getLendings().add(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));
+            model.getCurrentUser().addLending(new Lending(model.getCurrentUser(), libraryController.getBooksInBasket().get(i)));
         }
         ViewSwitcher.switchTo(View.LIBRARY, model);
     }
